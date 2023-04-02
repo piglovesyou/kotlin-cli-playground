@@ -1,7 +1,18 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+import com.github.ajalt.clikt.core.CliktCommand
+import com.github.ajalt.clikt.parameters.options.default
+import com.github.ajalt.clikt.parameters.options.option
+import com.github.ajalt.clikt.parameters.options.prompt
+import com.github.ajalt.clikt.parameters.types.int
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+class Hello : CliktCommand() {
+    val count: Int by option(help="Number of greetings").int().default(1)
+    val name: String by option(help="The person to greet").prompt("Your name")
+
+    override fun run() {
+        repeat(count) {
+            echo("Hello $name!")
+        }
+    }
 }
+
+fun main(args: Array<String>) = Hello().main(args)
