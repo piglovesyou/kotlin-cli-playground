@@ -1,4 +1,5 @@
 import com.github.ajalt.clikt.core.CliktCommand
+import com.github.ajalt.clikt.core.subcommands
 import com.github.ajalt.clikt.parameters.options.default
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.options.prompt
@@ -15,4 +16,21 @@ class Hello : CliktCommand() {
     }
 }
 
-fun main(args: Array<String>) = Hello().main(args)
+class Blaa : CliktCommand() {
+    override fun run() {
+        echo("Blaa!")
+    }
+}
+
+class Main : CliktCommand() {
+    override fun run() {
+        echo("Hello, world!")
+    }
+}
+
+fun main(args: Array<String>) = Main()
+    .subcommands(
+        Hello(),
+        Blaa(),
+    )
+    .main(args)
