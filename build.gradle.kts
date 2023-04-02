@@ -18,17 +18,18 @@ val kotestVersion = "5.5.5"
 val grpcVersion = "1.15.1"
 val protobufVersion = "3.22.2"
 dependencies {
-    testImplementation(kotlin("test"))
 
+    implementation("com.sksamuel.hoplite:hoplite-core:2.7.3")
     implementation("com.github.ajalt.clikt:clikt:3.5.2")
-
-    testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
-    testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
-    testImplementation("io.kotest:kotest-property:$kotestVersion")
 
     implementation("com.google.protobuf:protobuf-java:$protobufVersion")
     implementation("io.grpc:grpc-stub:$grpcVersion")
     implementation("io.grpc:grpc-protobuf:$grpcVersion")
+
+    testImplementation(kotlin("test"))
+    testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
+    testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
+    testImplementation("io.kotest:kotest-property:$kotestVersion")
 }
 
 tasks.test {

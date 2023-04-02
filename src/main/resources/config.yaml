@@ -1,0 +1,6 @@
+bootstrapServersConfig: "localhost:9092"
+groupIdConfig: "group1"
+keyDeserializerClassConfig: "org.apache.kafka.common.serialization.StringDeserializer"
+valueDeserializerClassConfig: "io.confluent.kafka.serializers.protobuf.KafkaProtobufDeserializer"
+schemaRegistryUrl: "http://localhost:8081"
+autoOffsetResetConfig: "earliest"
